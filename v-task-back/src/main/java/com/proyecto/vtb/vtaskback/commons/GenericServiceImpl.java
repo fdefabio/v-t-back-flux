@@ -1,7 +1,10 @@
 package com.proyecto.vtb.vtaskback.commons;
 
-import org.springframework.data.repository.CrudRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,9 +14,11 @@ import java.util.Optional;
 @Service
 public abstract class GenericServiceImpl<T , ID extends Serializable> implements GenericServiceAPI<T , ID> {
 
+    private static final Logger log = LoggerFactory.getLogger(GenericServiceImpl.class);
+
     @Override
     public T save(T entity) {
-        return getDao().save(entity);
+        return null/*getDao().save(entity)*/;
     }
 
     @Override
@@ -23,19 +28,19 @@ public abstract class GenericServiceImpl<T , ID extends Serializable> implements
 
     @Override
     public T get(ID id) {
-        Optional<T> obj = getDao().findById(id);
+       /* Optional<T> obj = getDao().findById(id);
         if(obj.isPresent()){
             return obj.get();
-        }
+        }*/
         return null;
     }
 
     @Override
     public List<T> getAll() {
         List<T> returnList = new ArrayList<>();
-        getDao().findAll().forEach(obj -> returnList.add(obj));
+        Flux.fromIterable(returnList).subscribe();
         return returnList;
     }
 
-    public abstract CrudRepository<T, ID> getDao();
+    public abstract ReactiveMongoRepository <T, ID> getDao();
 }

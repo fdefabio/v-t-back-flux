@@ -1,8 +1,10 @@
 package com.proyecto.vtb.vtaskback.DAO.api;
 
 import com.proyecto.vtb.vtaskback.models.Estudiante;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface EstudianteRepository extends MongoRepository <Estudiante, Long> {
+@Repository
+public interface EstudianteRepository extends ReactiveMongoRepository<Estudiante, Long> {
 
 }
