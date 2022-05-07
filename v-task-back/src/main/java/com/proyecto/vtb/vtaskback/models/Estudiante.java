@@ -2,10 +2,11 @@ package com.proyecto.vtb.vtaskback.models;
 
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("Estudiante")
-public class Estudiante {
+
+import java.io.Serializable;
+
+public class Estudiante implements Serializable {
 
     @Id
     private String id;
