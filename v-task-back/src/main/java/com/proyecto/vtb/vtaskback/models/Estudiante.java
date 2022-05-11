@@ -15,10 +15,11 @@ public class Estudiante implements Serializable {
     private String apellido;
     private String grupo;
 
+    private boolean is_admin = false;
+
     public Estudiante() {
 
     }
-
     public Estudiante(String id, String nombre, String apellido, String grupo) {
         this.id       = id;
         this.nombre   = nombre;
@@ -27,7 +28,9 @@ public class Estudiante implements Serializable {
 
 
     }
-
+    public boolean isIs_admin() {
+        return is_admin;
+    }
 
     public String getNombre() {
         return nombre;
