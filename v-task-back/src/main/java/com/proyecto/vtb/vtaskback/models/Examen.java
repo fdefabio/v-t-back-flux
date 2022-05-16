@@ -19,12 +19,14 @@ public class Examen {
     private List <Pregunta> pregunta = new ArrayList<>();
     private String comentarioAlumno;
     private String comentarioDocente;
-    private String iddocente;
+    private String idDocente;
+
+    private String idEstudiante;
     private String grupo;
 
 
 
-    public Examen(String titulo, String id , Date fechaPresentacion, String nota, List<Pregunta> pregunta, String comentarioAlumno, String comentarioDocente, String iddocente, String grupo) {
+    public Examen(String titulo, String id , Date fechaPresentacion, String nota, List<Pregunta> pregunta, String comentarioAlumno, String comentarioDocente, String iddocente, String idEstudiante, String grupo) {
         this.id = id;
         this.titulo = titulo;
         this.fechaPresentacion = fechaPresentacion;
@@ -32,7 +34,8 @@ public class Examen {
         this.pregunta = pregunta;
         this.comentarioAlumno = comentarioAlumno;
         this.comentarioDocente = comentarioDocente;
-        this.iddocente = iddocente;
+        this.idDocente = iddocente;
+        this.idEstudiante = idEstudiante;
         this.grupo = grupo;
     }
 
@@ -98,12 +101,12 @@ public class Examen {
         this.comentarioDocente = comentarioDocente;
     }
 
-    public String getIddocente() {
-        return iddocente;
+    public String getIdDocente() {
+        return idDocente;
     }
 
-    public void setIddocente(String iddocente) {
-        this.iddocente = iddocente;
+    public void setIdDocente(String idDocente) {
+        this.idDocente = idDocente;
     }
 
     public String getGrupo() {
@@ -112,5 +115,13 @@ public class Examen {
 
     public void setGrupo(String grupo) {
         this.grupo = grupo;
+    }
+
+    public String getIdEstudiante() {
+        return idEstudiante;
+    }
+
+    public void setIdEstudiante(String idEstudiante) {
+        this.idEstudiante = idEstudiante;
     }
 }

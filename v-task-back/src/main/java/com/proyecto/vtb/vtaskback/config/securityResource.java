@@ -1,4 +1,4 @@
-package com.proyecto.vtb.vtaskback.config;
+/*package com.proyecto.vtb.vtaskback.config;
 
 
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,3 +26,4 @@ public class securityResource {
         return "acceso condedido";
     }
 }
+*/

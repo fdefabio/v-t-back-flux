@@ -1,4 +1,4 @@
-package com.proyecto.vtb.vtaskback.services;
+/*package com.proyecto.vtb.vtaskback.services;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -43,3 +43,4 @@ public class userDetailServiceImpl implements UserDetailsService {
        return new User(username , password , enabled , accountNonExpired , credentialsNonExpired , accountNonLocked , authorities);
     }
 }
+*/

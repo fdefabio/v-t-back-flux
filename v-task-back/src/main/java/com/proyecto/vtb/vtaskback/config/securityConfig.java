@@ -1,4 +1,4 @@
-package com.proyecto.vtb.vtaskback.config;
+/*package com.proyecto.vtb.vtaskback.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -8,3 +8,4 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 public class securityConfig {
 
 }
+*/
