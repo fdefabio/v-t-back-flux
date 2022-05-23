@@ -1,10 +1,12 @@
 package com.proyecto.vtb.vtaskback.controller;
 import com.proyecto.vtb.vtaskback.models.Docente;
 import com.proyecto.vtb.vtaskback.models.Examen;
+import com.proyecto.vtb.vtaskback.models.Grupos;
 import com.proyecto.vtb.vtaskback.repositories.DocenteRepository;
 import com.proyecto.vtb.vtaskback.repositories.EstudianteRepository;
 import com.proyecto.vtb.vtaskback.models.Estudiante;
 import com.proyecto.vtb.vtaskback.repositories.ExamenRepository;
+import com.proyecto.vtb.vtaskback.repositories.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -18,7 +20,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class Controller {
 
-    @Autowired(required=true)
+    @Autowired
     private EstudianteRepository estudianteRepository;
 
     @Autowired
@@ -26,6 +28,10 @@ public class Controller {
 
     @Autowired
     private DocenteRepository docenteRepository;
+
+
+    @Autowired
+    private GrupoRepository gruposRepository;
 
 
 
@@ -125,6 +131,35 @@ public class Controller {
         return  docenteRepository.deleteById(id);
     }
 
+
+
+
+    //Metodos Grupos
+
+    @PostMapping("/AgregarGrupo")
+    public Mono<Grupos> agregarGrupo(@RequestBody Grupos grupo){
+        return gruposRepository.save(grupo);
+    }
+
+    @GetMapping("/Grupos")
+    public Flux<Grupos> getGrupo(){
+        return gruposRepository.findAll();
+    }
+
+    @PutMapping("/ActualizarGrupo")
+    public Mono<Grupos> actualizarGrupo(@RequestBody Grupos grupo){
+        return gruposRepository.save(grupo);
+    }
+
+    @GetMapping("/Grupo/{id}")
+    public Mono<Grupos> buscarGrupo(@PathVariable String id){
+        return gruposRepository.findById(id);
+    }
+
+    @DeleteMapping("/eliminarGrupo/{id}")
+    public Mono<Void> eliminarGrupo(@PathVariable String id){
+        return  gruposRepository.deleteById(id);
+    }
 
 
 }

@@ -1,4 +1,4 @@
-/*package com.proyecto.vtb.vtaskback.jwt;
+/*package com.proyecto.vtb.vtaskback.auth.jwt;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

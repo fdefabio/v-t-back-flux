@@ -14,17 +14,18 @@ public class Estudiante implements Serializable {
     private String nombre;
     private String apellido;
     private String grupo;
-
+    private String img;
     private boolean is_admin = false;
 
     public Estudiante() {
 
     }
-    public Estudiante(String id, String nombre, String apellido, String grupo) {
+    public Estudiante(String id, String nombre, String apellido,String img, String grupo) {
         this.id       = id;
         this.nombre   = nombre;
         this.apellido = apellido;
         this.grupo    = grupo;
+        this.img      = img;
 
 
     }
@@ -62,5 +63,13 @@ public class Estudiante implements Serializable {
 
     public void setGrupo(String grupo) {
         this.grupo = grupo;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

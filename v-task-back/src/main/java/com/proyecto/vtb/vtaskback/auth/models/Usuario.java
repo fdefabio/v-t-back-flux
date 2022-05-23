@@ -1,27 +1,31 @@
-package com.proyecto.vtb.vtaskback.models;
+package com.proyecto.vtb.vtaskback.auth.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class Docente {
+public class Usuario {
     @Id
     private String id;
     private String nombre;
     private String apellido;
+    private String username;
+    private String password;
     private String img;
 
+    private boolean is_admin ;
 
-    private boolean is_admin = true;
-
-    public Docente(String id, String nombre, String apellido,  String img) {
+    public Usuario(String id, String nombre, String apellido, String username, String password, String img, boolean is_admin) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.img      = img;
+        this.is_admin = is_admin;
+        this.username = username;
+        this.password = password;
     }
 
-    public Docente() {
+    public Usuario() {
     }
 
     public String getId() {
@@ -48,8 +52,20 @@ public class Docente {
         this.apellido = apellido;
     }
 
-    public boolean isIs_admin() {
-        return this.is_admin;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getImg() {
@@ -60,5 +76,16 @@ public class Docente {
         this.img = img;
     }
 
+    public boolean isIs_admin() {
+        return is_admin;
+    }
+
+    public void setIs_admin(boolean is_admin) {
+        this.is_admin = is_admin;
+    }
+
+
+
 
 }
+
