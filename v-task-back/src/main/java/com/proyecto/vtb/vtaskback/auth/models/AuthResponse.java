@@ -7,6 +7,7 @@ public class AuthResponse {
     public AuthResponse() {
     }
     public AuthResponse(String response) {
+        this.response = response;
     }
 
     public String getResponse() {

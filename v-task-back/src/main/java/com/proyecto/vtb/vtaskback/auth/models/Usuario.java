@@ -12,15 +12,13 @@ public class Usuario {
     private String username;
     private String password;
     private String img;
-
     private boolean is_admin ;
 
-    public Usuario(String id, String nombre, String apellido, String username, String password, String img, boolean is_admin) {
+    public Usuario(String id, String nombre, String apellido, String username, String password, String img) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.img      = img;
-        this.is_admin = is_admin;
         this.username = username;
         this.password = password;
     }
@@ -74,10 +72,6 @@ public class Usuario {
 
     public void setImg(String img) {
         this.img = img;
-    }
-
-    public boolean isIs_admin() {
-        return is_admin;
     }
 
     public void setIs_admin(boolean is_admin) {
