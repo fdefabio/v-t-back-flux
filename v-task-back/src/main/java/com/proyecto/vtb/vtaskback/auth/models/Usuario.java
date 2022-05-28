@@ -12,15 +12,16 @@ public class Usuario {
     private String username;
     private String password;
     private String img;
-    private boolean is_admin ;
+    private String rol;
 
-    public Usuario(String id, String nombre, String apellido, String username, String password, String img) {
+    public Usuario(String id, String nombre, String apellido, String username, String password, String img, String rol) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.img      = img;
         this.username = username;
         this.password = password;
+        this.rol      = rol;
     }
 
     public Usuario() {
@@ -74,12 +75,12 @@ public class Usuario {
         this.img = img;
     }
 
-    public void setIs_admin(boolean is_admin) {
-        this.is_admin = is_admin;
+    public String getRol() {
+        return rol;
     }
 
-
-
-
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
 }
 

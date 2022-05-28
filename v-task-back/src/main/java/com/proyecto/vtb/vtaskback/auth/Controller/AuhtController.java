@@ -6,6 +6,7 @@ import com.proyecto.vtb.vtaskback.auth.models.LoginRequest;
 import com.proyecto.vtb.vtaskback.auth.models.Usuario;
 import com.proyecto.vtb.vtaskback.auth.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -40,7 +41,6 @@ public class AuhtController {
         String password = authRequest.getPassword();
         String rol      = authRequest.getRol();
 
-
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setApellido(apellido);
@@ -51,9 +51,9 @@ public class AuhtController {
         try{
             userRepository.save(usuario);
         }catch(Exception e){
-            return ResponseEntity.ok(new AuthResponse("Error al crear usuario" + username));
+            return ResponseEntity.ok(new AuthResponse("error"));
         }
-        return ResponseEntity.ok(new AuthResponse("Usuario" +" "+ username +" "+ "registrado"));
+        return ResponseEntity.ok(new AuthResponse("Registro exitoso"));
     }
 
     @PostMapping("/login")
@@ -61,15 +61,13 @@ public class AuhtController {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
 
-
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username , password));
         }catch(Exception e){
-            return ResponseEntity.ok(new AuthResponse("Error durante la autenticacion"+ " "+ username));
+            return ResponseEntity.ok(new AuthResponse("error"));
         }
 
-        return ResponseEntity.ok(new AuthResponse("Auntenticad@" + " " + username));
+        return new ResponseEntity(userRepository.findByUsername(username), HttpStatus.OK);
     }
-
 
 }

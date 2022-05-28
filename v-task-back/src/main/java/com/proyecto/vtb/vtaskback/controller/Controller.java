@@ -1,11 +1,9 @@
 package com.proyecto.vtb.vtaskback.controller;
-import com.proyecto.vtb.vtaskback.models.Docente;
-import com.proyecto.vtb.vtaskback.models.Examen;
-import com.proyecto.vtb.vtaskback.models.Grupos;
+import com.proyecto.vtb.vtaskback.models.*;
 import com.proyecto.vtb.vtaskback.repositories.DocenteRepository;
 import com.proyecto.vtb.vtaskback.repositories.EstudianteRepository;
-import com.proyecto.vtb.vtaskback.models.Estudiante;
 import com.proyecto.vtb.vtaskback.repositories.ExamenRepository;
+import com.proyecto.vtb.vtaskback.repositories.ExameRealizadoRepository;
 import com.proyecto.vtb.vtaskback.repositories.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +30,9 @@ public class Controller {
 
     @Autowired
     private GrupoRepository gruposRepository;
+
+    @Autowired
+    private ExameRealizadoRepository exameRealizadoRepository;
 
 
 
@@ -79,12 +80,6 @@ public class Controller {
         return examenRepository.findAll();
     }
 
-    @GetMapping("/MisExamenes/{id}")
-    public Flux<Examen> getExamenesById(@PathVariable String id){
-        return examenRepository.findByIdEstudiante(id);
-    }
-
-
     @PutMapping("/ActualizarExamen")
     public Mono<Examen> actualizarExamen(@RequestBody Examen examen){
         return examenRepository.save(examen);
@@ -102,6 +97,22 @@ public class Controller {
 
 
 
+    //Metodos examen realizado
+
+    @GetMapping("/BuscarExamenPorId/{id}")
+    public Flux<ExamenRealizado> ExamenesRealizadosPorId(@PathVariable String id){
+        return exameRealizadoRepository.findByUsuarioId(id);
+    }
+
+    @PostMapping("/ResponderExamen")
+    public Mono<ExamenRealizado> ResponderExamen(@RequestBody ExamenRealizado examen){
+        return exameRealizadoRepository.save(examen);
+    }
+
+    @PutMapping("/calificarExamen")
+    public Mono<ExamenRealizado> calificarExamen(@RequestBody ExamenRealizado examen){
+        return exameRealizadoRepository.save(examen);
+    }
 
 
     //Metodos docente

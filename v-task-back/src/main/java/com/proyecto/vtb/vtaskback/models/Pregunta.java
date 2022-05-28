@@ -23,7 +23,6 @@ public class Pregunta {
     public String getRespuesta() {
         return respuesta;
     }
-
     public void setRespuesta(String respuesta) {
         this.respuesta = respuesta;
     }

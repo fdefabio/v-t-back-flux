@@ -7,9 +7,8 @@ public class AuthRequest {
     private String img;
     private String username;
     private String password;
-
     private String rol;
-    private boolean is_admin;
+
     public AuthRequest() {
     }
 
@@ -53,15 +52,6 @@ public class AuthRequest {
         this.img = img;
     }
 
-
-    public void setIs_admin() {
-        if(this.getRol().equals("docente")){
-            is_admin = true;
-        }else{
-            is_admin = false;
-        };
-    }
-
     public String getRol() {
         return rol;
     }
@@ -69,6 +59,7 @@ public class AuthRequest {
     public void setRol(String rol) {
         this.rol = rol;
     }
+
 
 
 }
